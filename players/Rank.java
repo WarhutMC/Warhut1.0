@@ -1,12 +1,7 @@
 package cyclegame.players;
-
 import common.util.communication.C;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-
-/**
- * Created by luke on 10/18/15.
- */
 public enum Rank {
     ADMIN("ADMIN", ChatColor.YELLOW, 4, 0),
     MOD("MOD", ChatColor.DARK_GREEN, 4, 0),
@@ -17,19 +12,16 @@ public enum Rank {
     PRO2("$$", ChatColor.GREEN, 3, 3),
     PRO("$",ChatColor.AQUA, 2, 2),
     regular("", ChatColor.WHITE, 1, 1);
-
     public String name;
     private ChatColor tagColor;
     public double coinScale;
     public int ticketScale;
-
     private Rank(String name, ChatColor tagColor, double coinScale, int ticketScale) {
         this.name = name;
         this.tagColor = tagColor;
         this.coinScale = coinScale;
         this.ticketScale = ticketScale;
     }
-
     public boolean has(Player player, Rank rank, boolean inform) {
         if (compareTo(rank) <= 0)
             return true;
